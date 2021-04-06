@@ -44,6 +44,7 @@ def update_address(address_name, address, email, address_type):
 
 
 def _update_address(addr, address, email, address_type):
+    addr.address_title = email
     addr.address_type = address_type
     addr.address_line1 = address.street1
     addr.address_line2 = address.street2
