@@ -83,8 +83,8 @@ def list_orders(
 				if store.is_amazon_store:
 					process_hook = frappe.get_hooks("process_shipstation_amazon_order")
 					if process_hook:
-						should_create_order = frappe.get_attr(process_hook[0])(store, order, update_customer_details)
-						if not should_create_order:
+						dont_create_order = frappe.get_attr(process_hook[0])(store, order, update_customer_details)
+						if dont_create_order:
 							continue
 				create_erpnext_order(order, store)
 
